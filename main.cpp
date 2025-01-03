@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QPixmap>
 #include <QFileDialog>
+#include <QTimer>
 
 class PhotoAlbum : public QWidget {
 public:
@@ -31,6 +32,9 @@ PhotoAlbum::PhotoAlbum(QWidget *parent) : QWidget(parent) {
     setLayout(layout);
     setWindowTitle("电子相册");
     resize(800, 600);
+
+    // 添加定时器，1分钟后退出程序
+    QTimer::singleShot(60000, this, &QWidget::close);
 }
 
 void PhotoAlbum::loadImage() {
